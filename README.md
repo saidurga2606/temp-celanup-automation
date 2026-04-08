@@ -35,7 +35,7 @@ This project automates the deletion of temporary and junk files on a Windows sys
 ## 📂 Project Files
 
 - `cleanup.ps1` → PowerShell script for cleanup
-- `temp-cleanup-workflow.json` → n8n workflow
+- `temp-cleanup-automation.json` → n8n workflow
 
 ---
 
@@ -48,8 +48,7 @@ Schedule Trigger → Execute Command → Send Email
 ## ✉️ Email Notification
 
 After cleanup, an email is sent with:
-- Status of cleanup
-- Time of execution
+- Status of cleanup is completed succesfully 
 
 ---
 
@@ -75,7 +74,7 @@ After cleanup, an email is sent with:
 
 Your Name
 
----
+saidurga
 
 ## ⭐ Project Status
 
