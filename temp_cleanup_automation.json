@@ -1,0 +1,97 @@
+{
+  "name": "temp cleanup automation",
+  "nodes": [
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "triggerAtHour": 8
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.2,
+      "position": [
+        -160,
+        0
+      ],
+      "id": "4ab9fc52-c908-4d2d-8a7e-dfd7222a54c7",
+      "name": "Schedule Trigger"
+    },
+    {
+      "parameters": {
+        "command": "powershell -ExecutionPolicy Bypass -File \"C:\\Users\\pssai\\OneDrive\\Desktop\\cleanup.ps1\""
+      },
+      "type": "n8n-nodes-base.executeCommand",
+      "typeVersion": 1,
+      "position": [
+        120,
+        0
+      ],
+      "id": "5fd305f1-d3f2-4b98-95d6-bb71cabb3e74",
+      "name": "Execute Command"
+    },
+    {
+      "parameters": {
+        "fromEmail": "saidurga2606@gmai.com",
+        "toEmail": "pssaichandra1994@gmail.com",
+        "subject": "Temp cleanup is completed succesfully.",
+        "emailFormat": "text",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.emailSend",
+      "typeVersion": 2.1,
+      "position": [
+        340,
+        0
+      ],
+      "id": "5a7f40c0-ebe6-487a-a4b9-0e735ec0d46b",
+      "name": "Send Email",
+      "webhookId": "1ed32c32-0716-41ff-83e2-e735425f67f2",
+      "credentials": {
+        "smtp": {
+          "id": "3TTL3af3oUvUbFwB",
+          "name": "SMTP account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "Execute Command",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Execute Command": {
+      "main": [
+        [
+          {
+            "node": "Send Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "4bcadcf8-1394-4bf2-8c57-f01945c24041",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "6daa5472a10351bff01f0ec668e3f36da21d4e64c9d80ed69666cbc4e16a5771"
+  },
+  "id": "21l14BbuWenBaoU9",
+  "tags": []
+}
